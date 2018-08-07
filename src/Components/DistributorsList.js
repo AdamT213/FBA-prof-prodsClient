@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
-import Distributor from '../Presentational/Distributor';
-import AddDistributor from './Forms/AddDistributor'
-import Distributors from './Distributors'
+import Distributor from './Presentational/Distributor';
+import AddDistributor from '../Forms/AddDistributor'
+
+//Main homepage for application, showing a list of existing distributors and a link to add a new distributor
 
 class DistributorsList extends Component {
 
