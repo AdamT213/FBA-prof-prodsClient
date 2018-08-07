@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './App.css'; 
+import { Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 import DistributorsList from './Components/DistributorsList'
 
@@ -12,7 +15,11 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to Your FBA Helper!</h1> 
         </header> 
-        <DistributorsList/> 
+        <Router history= {history}>
+          <div>
+            <Route exact path='/' component={DistributorsList}/>
+          </div>
+        </Router> 
       </div>
     );
   }
