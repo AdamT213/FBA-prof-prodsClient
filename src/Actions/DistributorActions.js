@@ -40,6 +40,11 @@ export function UploadFile(sheet) {
       dispatch({type: 'CHECK_PROFITABILITY', payload: responseJson}) 
       //somehow backend route needs to take json data parsed from file and check each product against Amazon Seller API to see if it is profitable   
     }).then(res => { 
+      return res.json()
+    }).then(responseJson => { 
+      //API route will get back JSON response with profitable products, which can then be added to the current distributors list via CONCAT_PROF_PRODS, then redirect back to the show page
+      dispatch({type: 'CONCAT_PROF_PRODS', payload: responseJson})
+    }).then(res => { 
       history.push(`/distributors/${currentDistributor.id}`)  
     })
   } 
