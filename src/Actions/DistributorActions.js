@@ -29,7 +29,7 @@ export function CreateDistributor(distributor){
 }  
 
 export function UploadFile(sheet) { 
-  
+  //Triggers post to route where file is uploaded to backend. This request completes, then triggers request to amazon sellers API for each JSONified item in list. This request completes and sends back prof_prods, triggering request to save each prof prod. User is then redirected to distributors show page with new prof prods added"
 }
 
 // export function addReview(review, person){ 
