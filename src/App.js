@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css'; 
+import createBrowserHistory from 'history/createBrowserHistory';
 import DistributorsList from './Components/DistributorsList'
+
+export const history = createBrowserHistory();
 
 class App extends Component {
   render() {

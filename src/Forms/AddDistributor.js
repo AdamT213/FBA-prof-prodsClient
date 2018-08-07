@@ -8,7 +8,7 @@ import {
   withRouter
 } from "react-router-dom";
 import { CreateDistributor } from '../Actions/DistributorActions'; 
-import { Distributor } from '../Components/Distributor'
+import { Distributor } from '../Components/Presentational/Distributor'
 
 
 export class AddDistributor extends Component {
