@@ -10,9 +10,9 @@ class DistributorsList extends Component {
 
   render() {
 
-    const distributors = this.props.distributors.map((distributor, index) => {
-      return <Distributor name={distributor.name} key={index} />
-    });
+    // const distributors = this.props.distributors.map((distributor, index) => {
+    //   return <Distributor name={distributor.name} key={index} />
+    // });
 
     return (
         <div className= "App"> 
@@ -27,7 +27,7 @@ class DistributorsList extends Component {
             <h3>Here are all of your Current Distributors</h3>
           </div>
           <ul>
-            {distributors}
+            {/* {distributors} */}
            </ul>
           <Switch>
             <Route path={`${this.props.match.url}/new`} component={AddDistributor} />
@@ -39,8 +39,10 @@ class DistributorsList extends Component {
   }
 };
 
-function mapStateToProps(state){ 
-  return {distributors: state.DistributorsReducer.distributors}
-}
+// function mapStateToProps(state){ 
+//   return {distributors: state.DistributorsReducer.distributors}
+// }
 
-export default connect(mapStateToProps)(DistributorsList);
+// export default connect(mapStateToProps)(DistributorsList);
+
+export default DistributorsList

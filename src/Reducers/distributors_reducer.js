@@ -24,7 +24,8 @@ export function DistributorsReducer(state = {person: "unfound", people: {}
       // case 'SET_PERSON_BY_ID': 
       //   currentPerson = action.payload[0].filter((person => person.id == action.payload[1]));
       //   return {person: currentPerson[0], people: state.people};
-      // default:
+      default:
       //  return state; 
+      return null;
   }
 } 
