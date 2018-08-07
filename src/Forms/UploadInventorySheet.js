@@ -46,7 +46,7 @@ export class UploadInventory extends Component {
                 <div className="panel-body">
                   <form className="form-horizontal" onSubmit={this.handleOnSubmit}>
                     <div className="form-group">
-                      <label htmlFor="name" className="col-md-4 control-label">Upload Inventory Sheet Here</label>
+                      <label htmlFor="name" className="col-md-4 control-label">Upload Inventory Sheet Here</label><br /><br />
                       <div className="col-md-5">
                         <input 
                           type= "file"
@@ -57,6 +57,7 @@ export class UploadInventory extends Component {
                         />
                       </div>
                     </div>
+                    <br />
                     <div className="form-group">
                       <div className="col-md-6 col-md-offset-4">
                         <button type="submit" className="btn btn-default">Upload this File</button>

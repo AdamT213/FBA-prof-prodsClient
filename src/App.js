@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 import DistributorsList from './Components/DistributorsList'
+import UploadInventory from './Forms/UploadInventorySheet'
 
 export const history = createBrowserHistory();
 
