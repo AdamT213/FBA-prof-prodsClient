@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import Distributor from './Presentational/Distributor';
 import AddDistributor from '../Forms/AddDistributor'
 import { FindDistributors } from '../Actions/DistributorActions'
+import { ShowDistributor } from './ShowDistributor'; 
+import { SetCurrentDistributor } from '../Actions/DistributorActions'
 
 //Main homepage for application, showing a list of existing distributors and a link to add a new distributor
 
@@ -11,12 +13,20 @@ class DistributorsList extends Component {
 
   componentDidMount() { 
     this.props.FindDistributors()
+  } 
+
+  handleClick = event => { 
+    debugger;
+    event.preventDefault();
+    let distributor = {};
+    distributor.id= event.target.id;
+    this.props.SetCurrentDistributor(distributor);   
   }
 
   render() {
 
     const distributors = this.props.distributors.map((distributor, index) => {
-      return <Distributor name={distributor.name} key={index} />
+      return <div><Distributor name={distributor.name} key={index} /> <button id={distributor.id} onClick={this.handleClick}>See Info For This Distributor</button><br /><br /></div>
     });
 
     return (
@@ -29,7 +39,7 @@ class DistributorsList extends Component {
             </Link></li>
           </ul>
           <div>
-            <h3>Here are all of your Current Distributors</h3>
+            <h2>Here are all of your Current Distributors</h2>
           </div>
           <ul>
             {distributors}
@@ -45,8 +55,11 @@ class DistributorsList extends Component {
 };
 
 function mapStateToProps(state){ 
-  debugger;
   return {distributors: state.DistributorsReducer.distributors}
+} 
+
+function mapDispatchToProps(dispatch){ 
+  return {FindDistributors: FindDistributors, SetCurrentDistributor: SetCurrentDistributor}
 }
 
-export default connect(mapStateToProps, { FindDistributors })(DistributorsList);
+export default connect(mapStateToProps, {FindDistributors, SetCurrentDistributor})(DistributorsList);

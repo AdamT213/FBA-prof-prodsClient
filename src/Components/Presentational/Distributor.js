@@ -13,30 +13,29 @@ class Distributor extends Component {
     // Margin
     // Number of FBA Sellers
 
-    const profProds =  this.props.profProds.map((product, index) => {
-    return <ProfProd totalMonthlySales={product.totalMonthlySales} retailSellingPrice={product.retailSellingPrice} amazonFees={product.amazonFees} productCost={product.productCost} profitMargin={product.profitMargin} numberOfSellers={product.numberOfSellers} key={index} />});  
+    // const profProds =  this.props.profProds.map((product, index) => {
+    // return <ProfProd totalMonthlySales={product.totalMonthlySales} retailSellingPrice={product.retailSellingPrice} amazonFees={product.amazonFees} productCost={product.productCost} profitMargin={product.profitMargin} numberOfSellers={product.numberOfSellers} key={index} />});  
 
-    if (!profProds) { 
-      debugger;
-      return( 
-        <div className= "container">
-            <p>Name: {this.props.name}</p><br />
-            <p>No profitable products yet found for this Distributor. Once we find some, they will be listed here.</p>
-          </div>
-      ); 
-    }
+    // if (!profProds) { 
+    //   return( 
+    //     <div className= "container">
+    //         <p>Name: {this.props.name}</p><br />
+    //         <p>No profitable products yet found for this Distributor. Once we find some, they will be listed here.</p>
+    //       </div>
+    //   ); 
+    // }
 
-    else {
+    // else {
         return( 
           <div className= "container">
             <p>Name: {this.props.name}</p><br />
             <ul> 
-              {profProds} 
+              {/* {profProds}  */}
             </ul><br /> 
           </div>
         ); 
       }
     }
-  }
+  // }
 
 export default Distributor;

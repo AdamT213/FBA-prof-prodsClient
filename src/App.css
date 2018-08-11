@@ -13,3 +13,9 @@
   font-size: 1.5em;
 }
 
+div.container { 
+  font-size: 1.5em;
+  height: 30px;
+  padding: 15px;
+  margin: 15px;
+}

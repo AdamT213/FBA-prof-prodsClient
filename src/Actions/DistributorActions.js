@@ -10,11 +10,18 @@ export function FindDistributors() {
     }).then(res => {
       return res.json()
     }).then(responseJson => {
-      debugger;
       dispatch({type: 'SET_DISTRIBUTORS', payload: responseJson})     
     })
   } 
+}   
+
+export function SetCurrentDistributor(distributor){ 
+  return function(dispatch, getState){ 
+    dispatch({type: 'SET_DISTRIBUTOR', payload: distributor}) 
+    history.push(`/distributors/${distributor.id}`)  
+  }
 }  
+
 
 export function CreateDistributor(distributor){ 
   return function(dispatch, getState){ 
