@@ -16,60 +16,34 @@ export class UploadInventory extends Component {
   constructor(props) {
     super(props)
     this.state = { 
-      name: '',
+      uploadStatus: false,
     }
+    this.handleUpload = this.handleUpload.bind(this);
   }
 
-  handleOnChange = event => {
-    const { value, name } = event.target;
-    this.setState({
-      [name]: value,
-    });
-  }
-
-  handleOnSubmit = event => { 
-    const sheet = Object.assign({}, this.state); 
+  handleUpload = event => { 
+    debugger;
     event.preventDefault();
-    this.props.UploadFile(sheet);   
+    let data = new FormData();
+    data.append('file', this.uploadInput.files[0]);
+    this.props.UploadFile(data);   
     this.setState({
-      name: '', 
+      uploadStatus: true,
     });
   }
 
   render() { 
 
-      return (
-        <div className="container">
-          <div className="row">
-            <div className="col-md-8 col-md-offset-2">
-              <div className="panel panel-default">
-                <div className="panel-body">
-                  <form className="form-horizontal" onSubmit={this.handleOnSubmit}>
-                    <div className="form-group">
-                      <label htmlFor="name" className="col-md-4 control-label">Upload Inventory Sheet Here</label><br /><br />
-                      <div className="col-md-5">
-                        <input 
-                          type= "file"
-                          className="form-control"
-                          name="name"
-                          value={this.state.name}
-                          onChange={this.handleOnChange}
-                        />
-                      </div>
-                    </div>
-                    <br />
-                    <div className="form-group">
-                      <div className="col-md-6 col-md-offset-4">
-                        <button type="submit" className="btn btn-default">Upload this File</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
+    return(
+      <div className="container">
+        <form onSubmit={this.handleUpload}>
+          <div className="form-group">
+            <input className="form-control"  ref={(ref) => { this.uploadInput = ref; }} type="file" />
           </div>
-        </div> 
-      ); 
+          <button className="btn btn-success" type>Upload</button>
+        </form>
+      </div>
+    )
     }
   }
 export default connect(null, { UploadFile })(UploadInventory);

@@ -16,7 +16,6 @@ class DistributorsList extends Component {
   } 
 
   handleClick = event => { 
-    debugger;
     event.preventDefault();
     let distributor = {};
     distributor.id= event.target.id;

@@ -44,18 +44,15 @@ export function CreateDistributor(distributor){
   } 
 }  
 
-export function UploadFile(sheet) { 
+export function UploadFile(data) { 
   //Triggers post to route where file is uploaded to backend. This request completes, then triggers request to amazon sellers API for each JSONified item in list. This request completes and sends back prof_prods, triggering request to save each prof prod. User is then redirected to distributors show page with new prof prods added
   return function(dispatch, getState){ 
+    debugger;
     let currentDistributor = getState().DistributorsReducer.distributor
     dispatch({type: 'UPLOAD_AND_PARSE'})
     return fetch(`https://fba-prof-prods.herokuapp.com/api/distributor/${currentDistributor.id}/upload`, {
     method: 'POST',
-    headers: {
-      Accept: 'multipart/form-data',
-      'Content-Type': 'multipart/form-data'
-    },
-    body: sheet})
+    body: data})
     .then(res => {
       return res.json()
     // }).then(responseJson => {

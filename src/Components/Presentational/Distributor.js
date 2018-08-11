@@ -28,7 +28,7 @@ class Distributor extends Component {
     // else {
         return( 
           <div className= "container">
-            <p>Name: {this.props.name}</p><br />
+            <p>{this.props.name}</p><br />
             <ul> 
               {/* {profProds}  */}
             </ul><br /> 
