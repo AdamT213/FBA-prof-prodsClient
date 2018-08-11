@@ -3,16 +3,21 @@ import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import Distributor from './Presentational/Distributor';
 import AddDistributor from '../Forms/AddDistributor'
+import { FindDistributors } from '../Actions/DistributorActions'
 
 //Main homepage for application, showing a list of existing distributors and a link to add a new distributor
 
-class DistributorsList extends Component {
+class DistributorsList extends Component { 
+
+  componentDidMount() { 
+    this.props.FindDistributors()
+  }
 
   render() {
 
-    // const distributors = this.props.distributors.map((distributor, index) => {
-    //   return <Distributor name={distributor.name} key={index} />
-    // });
+    const distributors = this.props.distributors.map((distributor, index) => {
+      return <Distributor name={distributor.name} key={index} />
+    });
 
     return (
         <div className= "App"> 
@@ -27,7 +32,7 @@ class DistributorsList extends Component {
             <h3>Here are all of your Current Distributors</h3>
           </div>
           <ul>
-            {/* {distributors} */}
+            {distributors}
            </ul>
           <Switch>
             <Route path={`${this.props.match.url}/new`} component={AddDistributor} />
@@ -39,10 +44,9 @@ class DistributorsList extends Component {
   }
 };
 
-// function mapStateToProps(state){ 
-//   return {distributors: state.DistributorsReducer.distributors}
-// }
+function mapStateToProps(state){ 
+  debugger;
+  return {distributors: state.DistributorsReducer.distributors}
+}
 
-// export default connect(mapStateToProps)(DistributorsList);
-
-export default DistributorsList
+export default connect(mapStateToProps, { FindDistributors })(DistributorsList);

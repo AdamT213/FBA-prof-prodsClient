@@ -5,12 +5,16 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 import DistributorsList from './Components/DistributorsList'
-import UploadInventory from './Forms/UploadInventorySheet'
+import AddDistributor from './Forms/AddDistributor' 
+import ShowDistributor from './Components/ShowDistributor'
+import { FindDistributors } from './Actions/DistributorActions'
 
 export const history = createBrowserHistory();
 
 class App extends Component {
-  render() {
+
+  render() { 
+
     return (
       <div className="App">
         <header className="App-header">
@@ -19,6 +23,7 @@ class App extends Component {
         <Router history= {history}>
           <div>
             <Route exact path='/' component={DistributorsList}/>
+            <Route path= '/distributors/:id' component={ShowDistributor}/>
           </div>
         </Router> 
       </div>
@@ -26,4 +31,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

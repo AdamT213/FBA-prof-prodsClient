@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import  UploadInventory  from '../Forms/UploadInventorySheet';
-import { Distributor } from '../Presentational/Distributor'; 
+import  Distributor  from './Presentational/Distributor'; 
 import { history } from '../App'
 import {
   BrowserRouter as Router,

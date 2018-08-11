@@ -1,13 +1,28 @@
 import fetch from 'isomorphic-fetch';
 import { history } from '../App'
 
+export function FindDistributors() {
+
+  return function(dispatch, getState){ 
+    dispatch({type: 'GET_DISTRIBUTORS'})
+    return fetch('https://fba-prof-prods.herokuapp.com/api/distributors', {
+      method: 'GET',
+    }).then(res => {
+      return res.json()
+    }).then(responseJson => {
+      debugger;
+      dispatch({type: 'SET_DISTRIBUTORS', payload: responseJson})     
+    })
+  } 
+}  
+
 export function CreateDistributor(distributor){ 
   return function(dispatch, getState){ 
     dispatch({type: 'CREATE_DISTRIBUTOR'})
-    return fetch('https://fbaprofprodsapi.herokuapp.com/distributors', {
+    return fetch('https://fba-prof-prods.herokuapp.com/api/distributors', {
     method: 'POST',
     headers: {
-      Accept: 'application/json',
+      'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(distributor)})
@@ -27,7 +42,7 @@ export function UploadFile(sheet) {
   return function(dispatch, getState){ 
     let currentDistributor = getState().DistributorsReducer.distributor
     dispatch({type: 'UPLOAD_AND_PARSE'})
-    return fetch(`https://fbaprofprodsapi.herokuapp.com/distributors/${currentDistributor.id}/upload`, {
+    return fetch(`https://fba-prof-prods.herokuapp.com/api/distributor/${currentDistributor.id}/upload`, {
     method: 'POST',
     headers: {
       Accept: 'multipart/form-data',
@@ -36,16 +51,16 @@ export function UploadFile(sheet) {
     body: sheet})
     .then(res => {
       return res.json()
-    }).then(responseJson => {
-      dispatch({type: 'CHECK_PROFITABILITY', payload: responseJson}) 
-      //somehow backend route needs to take json data parsed from file and check each product against Amazon Seller API to see if it is profitable   
-    }).then(res => { 
-      return res.json()
-    }).then(responseJson => { 
-      //API route will get back JSON response with profitable products, which can then be added to the current distributors list via CONCAT_PROF_PRODS, then redirect back to the show page
-      dispatch({type: 'CONCAT_PROF_PRODS', payload: responseJson})
-    }).then(res => { 
-      history.push(`/distributors/${currentDistributor.id}`)  
+    // }).then(responseJson => {
+    //   dispatch({type: 'CHECK_PROFITABILITY', payload: responseJson}) 
+    //   //somehow backend route needs to take json data parsed from file and check each product against Amazon Seller API to see if it is profitable   
+    // }).then(res => { 
+    //   return res.json()
+    // }).then(responseJson => { 
+    //   //API route will get back JSON response with profitable products, which can then be added to the current distributors list via CONCAT_PROF_PRODS, then redirect back to the show page
+    //   dispatch({type: 'CONCAT_PROF_PRODS', payload: responseJson})
+    // }).then(res => { 
+    //   history.push(`/distributors/${currentDistributor.id}`)  
     })
   } 
 }

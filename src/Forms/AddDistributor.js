@@ -30,7 +30,7 @@ export class AddDistributor extends Component {
   handleOnSubmit = event => { 
     const distributor = Object.assign({}, this.state); 
     event.preventDefault();
-    this.props.AddDistributor(distributor);   
+    this.props.CreateDistributor(distributor);   
     this.setState({
       name: '', 
     });
@@ -70,4 +70,4 @@ export class AddDistributor extends Component {
       ); 
     }
   }
-export default connect(null, { AddDistributor })(CreateDistributor);
+export default connect(null, { CreateDistributor })(AddDistributor);
