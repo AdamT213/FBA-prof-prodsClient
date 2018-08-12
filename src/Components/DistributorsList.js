@@ -12,6 +12,7 @@ import { SetCurrentDistributor } from '../Actions/DistributorActions'
 class DistributorsList extends Component { 
 
   componentDidMount() { 
+    //initial get request for list of distributors
     this.props.FindDistributors()
   } 
 
@@ -56,9 +57,5 @@ class DistributorsList extends Component {
 function mapStateToProps(state){ 
   return {distributors: state.DistributorsReducer.distributors}
 } 
-
-function mapDispatchToProps(dispatch){ 
-  return {FindDistributors: FindDistributors, SetCurrentDistributor: SetCurrentDistributor}
-}
 
 export default connect(mapStateToProps, {FindDistributors, SetCurrentDistributor})(DistributorsList);

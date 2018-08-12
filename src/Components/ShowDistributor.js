@@ -32,7 +32,7 @@ export class ShowDistributor extends Component {
           </div>
          </Router> 
          </div>
-        <Distributor name= {this.props.distributor.name} profProds= {this.props.distributor.ProfProds} 
+        <Distributor name= {this.props.distributor.name} products= {this.props.distributor.products} 
          /> 
         </div> 
       ); 

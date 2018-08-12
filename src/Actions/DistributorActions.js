@@ -17,11 +17,20 @@ export function FindDistributors() {
 
 export function SetCurrentDistributor(distributor){ 
   return function(dispatch, getState){ 
-    dispatch({type: 'SET_DISTRIBUTOR', payload: distributor}) 
-    history.push(`/distributors/${distributor.id}`)  
-  }
+    dispatch({type: 'GET_DISTRIBUTOR'})
+    return fetch(`https://fba-prof-prods.herokuapp.com/api/distributor/${distributor.id}`, {
+    method: 'GET',
+    })
+    .then(res => {
+      return res.json()
+    }).then(responseJson => {
+      dispatch({type: 'SET_DISTRIBUTOR_WITH_PRODUCTS', payload: responseJson})     
+    }).then(res => { 
+      let currentDistributor = getState().DistributorsReducer.distributor
+      history.push(`/distributors/${currentDistributor.id}`)  
+    })
+  } 
 }  
-
 
 export function CreateDistributor(distributor){ 
   return function(dispatch, getState){ 
