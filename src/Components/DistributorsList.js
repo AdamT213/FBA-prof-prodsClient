@@ -45,7 +45,7 @@ class DistributorsList extends Component {
             {distributors}
            </ul>
           <Switch>
-            <Route path={`${this.props.match.url}/new`} component={AddDistributor} />
+            <Route exact path={`${this.props.match.url}/new`} component={AddDistributor} />
           </Switch> 
           </div>
           </Router>

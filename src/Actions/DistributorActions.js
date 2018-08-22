@@ -54,27 +54,19 @@ export function CreateDistributor(distributor){
 }  
 
 export function UploadFile(data) { 
-  //Triggers post to route where file is uploaded to backend. This request completes, then triggers request to amazon sellers API for each JSONified item in list. This request completes and sends back prof_prods, triggering request to save each prof prod. User is then redirected to distributors show page with new prof prods added
+  //Triggers post to route where file is uploaded to backend. This request completes, then triggers request to amazon sellers API for each JSONified item in list. This request completes
   return function(dispatch, getState){ 
-    debugger;
+    
     let currentDistributor = getState().DistributorsReducer.distributor
-    dispatch({type: 'UPLOAD_AND_PARSE'})
+    dispatch({type: 'UPLOAD_AND_PARSE'}) 
+    
     return fetch(`https://fba-prof-prods.herokuapp.com/api/distributor/${currentDistributor.id}/upload`, {
     method: 'POST',
     body: data})
-    .then(res => {
-      return res.json()
-    // }).then(responseJson => {
-    //   dispatch({type: 'CHECK_PROFITABILITY', payload: responseJson}) 
-    //   //somehow backend route needs to take json data parsed from file and check each product against Amazon Seller API to see if it is profitable   
-    // }).then(res => { 
-    //   return res.json()
-    // }).then(responseJson => { 
-    //   //API route will get back JSON response with profitable products, which can then be added to the current distributors list via CONCAT_PROF_PRODS, then redirect back to the show page
-    //   dispatch({type: 'CONCAT_PROF_PRODS', payload: responseJson})
-    // }).then(res => { 
-    //   history.push(`/distributors/${currentDistributor.id}`)  
-    })
+    .then(res => { 
+       history.push('/') 
+       alert("Please wait a few moments for your inventory sheet to be parsed. Then, click on the distributor's name to see the list of new products!" )
+    }) 
   } 
 }
 

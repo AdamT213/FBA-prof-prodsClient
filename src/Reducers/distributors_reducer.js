@@ -9,11 +9,7 @@ export function DistributorsReducer(state = {distributor: null, distributors: []
         case 'SET_DISTRIBUTOR_WITH_PRODUCTS': 
           return {distributor: action.payload, distributors: state.distributors};
       case 'UPLOAD_AND_PARSE': 
-        return {distributor: currentDistributor, distributors: state.distributors};
-      case 'CONCAT_PROF_PRODS': 
-        let newProfProds = action.payload 
-        state.distributor.profProds.concat(newProfProds)
-        return {distributor: state.distributor, distributors: state.distributors}; 
+        return {distributor: state.distributor, distributors: state.distributors};  
       case 'CLEAR_DISTRIBUTOR': 
         return {distributor: null, distributors: state.distributors}
       default:

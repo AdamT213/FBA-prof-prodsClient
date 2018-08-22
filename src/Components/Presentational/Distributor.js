@@ -5,19 +5,19 @@ class Distributor extends Component {
     
   render() { 
     // These are the attributes to show for each profitable product. In the list, only the name should be shown, and when you click the item, it should link to a show page with the following attributes (attributes shown in index for now):
-    // Total Monthly Sales
     // Retail Selling Price
     // Amazon Fees
     // Product Cost
-    // Profit
-    // Margin
-    // Number of FBA Sellers
+    // Profit Margin
 
     const Products =  this.props.products !== undefined ? this.props.products.map((prod, index) => {
     return <Product Title={prod.title} 
     UPC={prod.UPC} 
     Price={prod.Price} 
-    SKU={prod.SKU} key={index} />}) : null  
+    SKU={prod.SKU} 
+    amazonFees={prod.amazonFees}
+    profitMargin={prod.profitMargin}
+    retailSellingPrice={prod.retailSellingPrice} key={index} />}) : null  
 
         return( 
           <div className= "container">

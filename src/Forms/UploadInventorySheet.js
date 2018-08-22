@@ -22,7 +22,6 @@ export class UploadInventory extends Component {
   }
 
   handleUpload = event => { 
-    debugger;
     event.preventDefault();
     let data = new FormData();
     data.append('file', this.uploadInput.files[0]);
@@ -35,9 +34,9 @@ export class UploadInventory extends Component {
   render() { 
 
     return(
-      <div className="container">
+      <div>
         <form onSubmit={this.handleUpload}>
-          <div className="form-group">
+          <div className="form-group"> 
             <input className="form-control"  ref={(ref) => { this.uploadInput = ref; }} type="file" />
           </div>
           <button className="btn btn-success" type>Upload</button>

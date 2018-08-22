@@ -25,7 +25,7 @@ export class ShowDistributor extends Component {
           </Link><br />
           <div>
           <Switch>
-            <Route path={`${this.props.match.url}/inventory/new`} 
+            <Route exact path={`${this.props.match.url}/inventory/new`} 
             component={UploadInventory} /> 
           </Switch> 
           </div> 

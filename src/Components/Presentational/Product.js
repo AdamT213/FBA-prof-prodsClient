@@ -6,15 +6,13 @@ export class Product extends Component {
     
       return(  
         <div className= "Product"> 
-          <h3>Title: {this.props.Title}</h3> 
+          <h3>{this.props.Title}</h3> 
           <h3>UPC: {this.props.UPC}</h3> 
           <h3>Price: {this.props.Price}</h3> 
           <h3>SKU: {this.props.SKU}</h3> 
-          <h3>Total Monthly Sales: {this.props.totalMonthlySales}</h3>
           <h3>Retail Selling Price: {this.props.retailSellingPrice}</h3>
           <h3>Amazon Fees: {this.props.amazonFees}</h3>
-          <h3>Profit Margin: {this.props.profitMargin}</h3>
-          <h3>Number of FBA Sellers: {this.props.numberOfSellers}</h3><br /> 
+          <h3>Profit Margin: {this.props.profitMargin}</h3><br /> 
         </div>
       ); 
     }
