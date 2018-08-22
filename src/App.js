@@ -8,6 +8,7 @@ import DistributorsList from './Components/DistributorsList'
 import AddDistributor from './Forms/AddDistributor' 
 import ShowDistributor from './Components/ShowDistributor'
 import { FindDistributors } from './Actions/DistributorActions'
+import Navbar from './Components/Navbar'; 
 
 export const history = createBrowserHistory();
 
@@ -22,6 +23,7 @@ class App extends Component {
         </header> 
         <Router history= {history}>
           <div>
+            <Navbar />
             <Route exact path='/' component={DistributorsList}/> 
             <Route exact path= '/distributors/:id' component={ShowDistributor}/>
           </div>
