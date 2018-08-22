@@ -2,7 +2,7 @@ export function DistributorsReducer(state = {distributor: null, distributors: []
 }, action) {
   switch (action.type) { 
       case 'SET_DISTRIBUTORS':  
-        return {distributors: state.distributors.concat(action.payload)} 
+        return {distributors: action.payload} 
       case 'SET_DISTRIBUTOR':  
         let currentDistributor = action.payload 
         return {distributor: currentDistributor, distributors: state.distributors};  
