@@ -22,7 +22,7 @@ class App extends Component {
         </header> 
         <Router history= {history}>
           <div>
-            <Route exact path='/' component={DistributorsList}/>
+            <Route exact path='/' component={DistributorsList}/> 
             <Route exact path= '/distributors/:id' component={ShowDistributor}/>
           </div>
         </Router> 

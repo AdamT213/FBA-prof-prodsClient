@@ -4,8 +4,8 @@ export function DistributorsReducer(state = {distributor: null, distributors: []
       case 'SET_DISTRIBUTORS':  
         return {distributors: state.distributors.concat(action.payload)} 
       case 'SET_DISTRIBUTOR':  
-        let currentDistributor = state.distributors.find((d => d.id == action.payload.id));
-        return {distributor: currentDistributor, distributors: state.distributors.concat(currentDistributor)};  
+        let currentDistributor = action.payload 
+        return {distributor: currentDistributor, distributors: state.distributors};  
         case 'SET_DISTRIBUTOR_WITH_PRODUCTS': 
           return {distributor: action.payload, distributors: state.distributors};
       case 'UPLOAD_AND_PARSE': 

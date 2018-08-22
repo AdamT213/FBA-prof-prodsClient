@@ -42,10 +42,10 @@ export function CreateDistributor(distributor){
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(distributor)})
-    .then(res => {
+    .then(res => { 
       return res.json()
-    }).then(responseJson => {
-      dispatch({type: 'SET_DISTRIBUTOR', payload: responseJson})     
+    }).then(responseJson => {   
+      dispatch({type: 'SET_DISTRIBUTOR', payload: responseJson}) 
     }).then(res => { 
       let currentDistributor = getState().DistributorsReducer.distributor
       history.push(`/distributors/${currentDistributor.id}`)  
