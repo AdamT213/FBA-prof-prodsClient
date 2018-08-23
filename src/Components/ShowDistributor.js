@@ -35,7 +35,7 @@ export class ShowDistributor extends Component {
         <div>
           <Link to={`${this.props.match.url}/inventory/new`}>
               Upload A New Inventory Sheet for This Distributor
-          </Link><br /> 
+          </Link><br /><br />
           <button id={this.props.distributor.id} onClick={this.handleClick}>Delete This Distributor</button>
           <div>
           <Switch>

@@ -21,7 +21,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Welcome to Your FBA Helper!</h1> 
-        </header> 
+        </header><br />
         <Router history= {history}>
           <div>
             <Navbar />

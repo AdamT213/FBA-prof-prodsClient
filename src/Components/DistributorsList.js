@@ -26,21 +26,19 @@ class DistributorsList extends Component {
   render() {
 
     const distributors = this.props.distributors.map((distributor, index) => {
-      return <div><Distributor name={distributor.name} key={index} /> <button id={distributor.id} onClick={this.handleClick}>See Info For This Distributor</button><br /><br /></div>
+      return <div className="small"><li><Distributor name={distributor.name} key={index} /><br /><button id={distributor.id} onClick={this.handleClick}>See Info For This Distributor</button></li><br /><br /></div>
     });
 
     return (
         <div className= "App"> 
         <Router> 
-        <div>
+        <div className="container">
         <ul>
           <li><Link to={'/distributors/new'}>
               Add a New Distributor
             </Link></li>
           </ul>
-          <div>
             <h2>Here are all of your Current Distributors</h2>
-          </div>
           <ul>
             {distributors}
            </ul>

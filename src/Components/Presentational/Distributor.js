@@ -23,17 +23,18 @@ class Distributor extends Component {
     //UPC
 
     const Products =  this.props.products !== undefined ? this.props.products.map((prod, index) => {
-    return <div> <ProductName Title={prod.title} key={index}/> 
+    return <div><ProductName Title={prod.title} key={index}/> 
     <button id={prod.id} onClick={this.handleClick}>See Details</button>
      </div>}) : null  
 
         return( 
-          <div className= "container">
-            <p>{this.props.name}</p><br />
+          <div className="verySmall">
+            {/* <h3>{this.props.name}</h3> */}
             <ul> 
+            <h3>{this.props.name}</h3>
               {Products}
             </ul><br /> 
-          </div>
+           </div>
         ); 
       }
     }

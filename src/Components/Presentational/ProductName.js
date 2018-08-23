@@ -7,8 +7,8 @@ export class ProductName extends Component {
   render() { 
     
       return(  
-        <div className= "Product"> 
-          <h3>{this.props.Title}</h3><br /> 
+        <div className="productName"> 
+          <h4>{this.props.Title}</h4><br /> 
         </div>
       ); 
     }
