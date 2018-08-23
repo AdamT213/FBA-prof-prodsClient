@@ -31,7 +31,7 @@ export class AddDistributor extends Component {
     const distributor = Object.assign({}, this.state); 
     event.preventDefault();
     this.props.CreateDistributor(distributor);   
-    this.setState({
+    this.setState({ 
       name: '', 
     });
   }

@@ -46,7 +46,7 @@ export function CreateDistributor(distributor){
       return res.json()
     }).then(responseJson => {   
       dispatch({type: 'SET_DISTRIBUTOR', payload: responseJson}) 
-    }).then(res => { 
+    }).then(res => {  
       let currentDistributor = getState().DistributorsReducer.distributor
       history.push(`/distributors/${currentDistributor.id}`)  
     })
@@ -57,7 +57,7 @@ export function UploadFile(data) {
   //Triggers post to route where file is uploaded to backend. This request completes, then triggers request to amazon sellers API for each JSONified item in list. This request completes
   return function(dispatch, getState){ 
     
-    let currentDistributor = getState().DistributorsReducer.distributor
+    let currentDistributor = getState().DistributorsReducer.distributor 
     dispatch({type: 'UPLOAD_AND_PARSE'}) 
     
     return fetch(`https://fba-prof-prods.herokuapp.com/api/distributor/${currentDistributor.id}/upload`, {
