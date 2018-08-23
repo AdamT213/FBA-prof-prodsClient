@@ -17,5 +17,19 @@ export function SetCurrentProduct(product){
       history.push(`/distributors/${currentDistributor.id}/products/${currentProduct.id}`)  
     })
   } 
-}  
+}   
 
+export function DeleteProduct(product){ 
+  return function(dispatch, getState){ 
+    dispatch({type: 'DELETE_PRODUCT'})
+    return fetch(`https://fba-prof-prods.herokuapp.com/api/product/${product.id}`, {
+    method: 'DELETE',
+    })
+    .then(res => {
+      return res.json()
+    }).then(responseJson => { 
+      let currentDistributor = getState().DistributorsReducer.distributor
+      history.push(`/`)  
+    })
+  } 
+}   

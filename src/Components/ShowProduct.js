@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import  Product  from './Presentational/Product'; 
-import { history } from '../App'
+import { history } from '../App' 
+import { DeleteProduct} from '../Actions/ProductActions'
 
 export class ShowProduct extends Component { 
+
+  handleClick = event => { 
+    event.preventDefault();
+    let product = {};
+    product.id= event.target.id;
+    this.props.DeleteProduct(product);   
+  }
      
   render() { 
 
@@ -16,6 +24,7 @@ export class ShowProduct extends Component {
           amazonFees={this.props.product.amazonFees}
           profitMargin={this.props.product.profitMargin}
          /> 
+         <button id={this.props.product.id} onClick={this.handleClick}>Delete This Product</button>
         </div> 
       ); 
     }
@@ -25,4 +34,4 @@ function mapStateToProps(state){
   return {product: state.ProductsReducer.product}
 }
 
-export default connect(mapStateToProps, null)(ShowProduct);
+export default connect(mapStateToProps, { DeleteProduct })(ShowProduct); 
