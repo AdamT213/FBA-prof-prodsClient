@@ -29,7 +29,7 @@ export function DeleteProduct(product){
       return res.json()
     }).then(responseJson => { 
       let currentDistributor = getState().DistributorsReducer.distributor
-      history.push(`/`)  
+      history.push(`/distributors/${currentDistributor.id}`)  
     })
   } 
 }   

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import  UploadInventory  from '../Forms/UploadInventorySheet';
 import  Distributor  from './Presentational/Distributor'; 
+import { SetCurrentDistributor } from '../Actions/DistributorActions'
 import { history } from '../App'
 import {
   BrowserRouter as Router,
@@ -12,6 +13,10 @@ import {
 } from "react-router-dom"; 
 
 export class ShowDistributor extends Component { 
+
+  componentDidMount() { 
+    this.props.SetCurrentDistributor(this.props.distributor)
+  } 
      
   render() { 
 
@@ -43,4 +48,4 @@ function mapStateToProps(state){
   return {distributor: state.DistributorsReducer.distributor}
 }
 
-export default connect(mapStateToProps, null)(ShowDistributor);
+export default connect(mapStateToProps, { SetCurrentDistributor })(ShowDistributor);
