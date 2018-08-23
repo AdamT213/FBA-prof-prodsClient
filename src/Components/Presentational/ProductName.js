@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 export class ProductName extends Component {  
+
+  //shows product title and displays a link below to product show page
     
   render() { 
     

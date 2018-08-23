@@ -1,4 +1,5 @@
-import React, { Component } from 'react'; 
+import React, { Component } from 'react';  
+import { connect } from 'react-redux'
 import ProductName from './ProductName'; 
 import { SetCurrentProduct } from '../../Actions/ProductActions'
 
@@ -36,5 +37,6 @@ class Distributor extends Component {
         ); 
       }
     }
+
+  export default connect(null, { SetCurrentProduct})(Distributor);
  
-export default Distributor;
