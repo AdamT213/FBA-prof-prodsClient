@@ -21,7 +21,7 @@ class DistributorsList extends Component {
     let distributor = {};
     distributor.id= event.target.id;
     this.props.SetCurrentDistributor(distributor);   
-  }
+  } 
 
   render() {
 

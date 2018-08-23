@@ -75,3 +75,17 @@ export function removeDistributor(){
    dispatch({type: 'CLEAR_DISTRIBUTOR'})
  } 
 } 
+
+export function DeleteDistributor(distributor){ 
+  return function(dispatch, getState){ 
+    dispatch({type: 'DELETE_DISTRIBUTOR'})
+    return fetch(`https://fba-prof-prods.herokuapp.com/api/distributor/${distributor.id}`, {
+    method: 'DELETE',
+    })
+    .then(res => {
+      return res.json()
+    }).then(responseJson => { 
+      history.push(`/`)  
+    })
+  } 
+}   

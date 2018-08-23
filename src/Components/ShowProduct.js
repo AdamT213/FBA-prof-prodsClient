@@ -22,7 +22,7 @@ export class ShowProduct extends Component {
           SKU={this.props.product.SKU} 
           retailSellingPrice={this.props.product.retailSellingPrice}
           amazonFees={this.props.product.amazonFees}
-          profitMargin={this.props.product.profitMargin}
+          profitMargin={this.props.product.profitMargin} SalesRank={this.props.SalesRank}
          /> 
          <button id={this.props.product.id} onClick={this.handleClick}>Delete This Product</button>
         </div> 
