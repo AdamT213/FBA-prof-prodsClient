@@ -4,7 +4,7 @@ export class Product extends Component {
     
   render() { 
     
-      return ( this.props.SalesRank !== 1000000000000 ?  
+      return ( this.props.SalesRank !== 1000000000 ?  
         <div className= "Product"> 
           <h3>{this.props.Title}</h3> 
           <h3>UPC: {this.props.UPC}</h3> 
